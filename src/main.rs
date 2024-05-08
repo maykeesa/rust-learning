@@ -22,6 +22,12 @@ fn main(){
     println!("Faixa etária: {}", faixa_etaria);
 
     repeticoes(5);
+
+    let match_statement = match_statement("dfgfgdf");
+    println!("Nome: {}", match_statement);
+
+    let match_statment_number:String = match_statement_number(21);
+    println!("Valor: {}", match_statment_number);
 }
 
 pub fn types(){
@@ -110,5 +116,30 @@ pub fn repeticoes(multiplicador:u8){
     for i in 1..11{
         println!("Index: {}", i);
     }
+}
 
+pub fn match_statement(opcao:&str) -> String{
+    return match opcao {
+        x if x.is_empty() => {
+            "Nome vazio".to_string()
+        },
+        x if x.eq("Mayke") =>{
+            "Nome e igual a Mayke".to_string()
+        },
+        x if x.len() > 6 => {
+            "Nome muito grande!".to_string()
+        },
+        _ => {
+            "Nenhuma das opcoes foram verdadeiras!".to_string()
+        }
+    };
+}
+
+pub fn match_statement_number(number:u8) -> String{
+    return match number {
+        1 => format!("1 = {}", number),
+        2 | 3 | 5 | 7 => format!("Primo = {}", number),
+        10..=20 => format!("10 <= {} <= 20", number),
+        _ => "Nenhuma das opcoes foram válidas!".to_string(),
+    };
 }
